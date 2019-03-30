@@ -10,6 +10,6 @@ public class SystemConstantUtils {
      */
     public static final class Page {
 
-        public static final Integer PAGE_SIZE = 4;
+        public static final Integer PAGE_SIZE = 7;
     }
 }
