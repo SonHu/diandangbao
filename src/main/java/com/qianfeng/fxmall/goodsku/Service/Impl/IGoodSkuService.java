@@ -7,4 +7,6 @@ import java.util.List;
 public interface IGoodSkuService {
 
       List<WxbGoodSku> queryGoodSkuByPage(Integer Page)throws Exception;
+
+      void insertGoodSku(WxbGoodSku goodSku)throws Exception;
 }

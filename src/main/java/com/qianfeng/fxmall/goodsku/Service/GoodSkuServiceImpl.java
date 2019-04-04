@@ -11,13 +11,19 @@ import java.util.List;
 public class GoodSkuServiceImpl implements IGoodSkuService  {
 
     private IGoodSkuDAO goodSkuDAO = new GoodSkuDAOImpl();
+
     @Override
-    public List<WxbGoodSku> queryGoodSkuByPage(Integer Page) throws Exception {
-        if(Page < 1){
+    public void insertGoodSku(WxbGoodSku goodSku) throws Exception {
+
+    }
+
+    @Override
+    public List<WxbGoodSku> queryGoodSkuByPage(Integer page) throws Exception {
+        if(page < 1){
             throw new IndexOutOfBoundsException("页码数不能小于1");
         }
         //计算页码的下标
-        int index = (Page - 1) * SystemConstantUtils.Page.PAGE_SIZE;
+        int index = (page - 1) * SystemConstantUtils.Page.PAGE_SIZE;
         List<WxbGoodSku> goodSkus = goodSkuDAO.queryGoodSkuByPage(index);
         return goodSkus;
     }

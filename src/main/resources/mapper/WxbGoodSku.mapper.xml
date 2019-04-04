@@ -20,4 +20,11 @@
     <select id="queryGoodSkuByPage" resultMap="baseResultMap">
         select <include refid="params"/> from wxb_good_sku limit #{index},#{size}
     </select>
+   <!-- <select id="insertGoodSku" resultMap="baseResultMap">
+        insert into wxb_good_sku(<include refid="params"/>)values (?,?,?,?,?,?,?,?)
+    </select>-->
+    <insert id="insertGoodSku">
+        insert into wxb_good_sku(sku_name,sku_cost,sku_price,sku_pmoney,good_id,order_no,service_money)values
+        (#{skuName},#{skuCost},#{skuPrice},#{skuPmoney},#{goodId},#{orderNo},#{serviceMoney})
+    </insert>
 </mapper>

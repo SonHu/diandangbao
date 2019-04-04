@@ -14,19 +14,22 @@ import java.util.List;
 public class GoodSkuServlet extends HttpServlet {
 
     private IGoodSkuService goodSkuService = new GoodSkuServiceImpl();
+
+    /**
+     *
+     * 按页码查询
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String page = req.getParameter("Page");
         try {
             page = page == null?"1":page;
-            List<WxbGoodSku> goodSkusList = goodSkuService.queryGoodSkuByPage(Integer.parseInt(page));
-            req.setAttribute("goodSkusList",goodSkusList);
-            req.getRequestDispatcher("goodSku,jsp").forward(req,resp);
+            List<WxbGoodSku> goodSkuList = goodSkuService.queryGoodSkuByPage(Integer.parseInt(page));
+            req.setAttribute("goodSkusList",goodSkuList);
+            req.getRequestDispatcher("goodSku.jsp").forward(req,resp);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     @Override
