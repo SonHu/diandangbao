@@ -4,17 +4,20 @@ import com.qianfeng.fxmall.commons.info.SystemConstantUtils;
 import com.qianfeng.fxmall.goodsku.Service.Impl.IGoodSkuService;
 import com.qianfeng.fxmall.goodsku.bean.WxbGoodSku;
 import com.qianfeng.fxmall.goodsku.dao.IGoodSkuDAO;
-import com.qianfeng.fxmall.goodsku.dao.Impl.GoodSkuDAOImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class GoodSkuServiceImpl implements IGoodSkuService  {
 
-    private IGoodSkuDAO goodSkuDAO = new GoodSkuDAOImpl();
+   @Autowired
+   private IGoodSkuDAO goodSkuDAO;
 
     @Override
-    public void insertGoodSku(WxbGoodSku goodSku) throws Exception {
-
+    public void insertGoodSku(WxbGoodSku goodSku)  {
+          goodSkuDAO.insertGoodSku(goodSku);
     }
 
     @Override
